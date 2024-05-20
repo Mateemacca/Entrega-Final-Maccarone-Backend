@@ -84,7 +84,8 @@ const initializePassport = () => {
     new GithubStrategy(
       {
         clientID: config.clientId,
-        callbackURL: "/api/session/githubcallback",
+        callbackURL:
+          "https://entrega-final-maccarone-backend-qa.up.railway.app/api/session/githubcallback",
         clientSecret: config.githubSecret,
       },
       async (accessToken, refreshToken, profile, done) => {

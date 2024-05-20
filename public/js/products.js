@@ -2,18 +2,15 @@ const addToCartBtns = document.querySelectorAll(".add-to-cart-btn");
 
 const addProductToCart = async (pid, cartId) => {
   try {
-    const result = await fetch(
-      `http://localhost:8080/api/carts/${cartId}/product/${pid}`,
-      {
-        body: JSON.stringify({
-          quantity: 1,
-        }),
-        method: "post",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    );
+    const result = await fetch(`/api/carts/${cartId}/product/${pid}`, {
+      body: JSON.stringify({
+        quantity: 1,
+      }),
+      method: "post",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
     if (result.ok) {
       Swal.fire({
         icon: "success",
@@ -51,7 +48,7 @@ for (let btn of addToCartBtns) {
 
 async function getCartId() {
   try {
-    const response = await fetch("http://localhost:8080/api/session/current");
+    const response = await fetch("/api/session/current");
     if (response.ok) {
       const data = await response.json();
       const cart = data.user.cart;
@@ -73,12 +70,9 @@ document.addEventListener("DOMContentLoaded", () => {
     button.addEventListener("click", async (event) => {
       const productId = button.id;
       try {
-        const response = await fetch(
-          `http://localhost:8080/api/products/${productId}`,
-          {
-            method: "DELETE",
-          }
-        );
+        const response = await fetch(`/api/products/${productId}`, {
+          method: "DELETE",
+        });
         if (response.ok) {
           const productCard = document.getElementById(`product-${productId}`);
           if (productCard) {

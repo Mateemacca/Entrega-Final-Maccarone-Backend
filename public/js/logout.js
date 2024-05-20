@@ -10,7 +10,7 @@ logoutBtn.addEventListener("click", async (e) => {
     cancelButtonText: "Cancel",
   }).then(async (result) => {
     if (result.isConfirmed) {
-      const result = await fetch("http://localhost:8080/api/session/logout", {
+      const result = await fetch("/api/session/logout", {
         method: "post",
         headers: {
           "Content-Type": "application/json",

@@ -8,7 +8,7 @@ purchaseBtn.addEventListener("click", async (e) => {
 });
 
 async function purchaseCart(cartId) {
-  const url = `http://localhost:8080/api/carts/${cartId}/purchase`;
+  const url = `/api/carts/${cartId}/purchase`;
   try {
     const response = await fetch(url, {
       method: "POST",

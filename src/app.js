@@ -108,7 +108,7 @@ app.use("/api/users", userRoutes);
 app.use(ErrorHandler);
 
 const httpServer = app.listen(PORT, () => {
-  console.log(`Server is running on port http://localhost:${PORT}`);
+  console.log(`Server is running on port ${PORT}`);
 });
 
 const io = new Server(httpServer);

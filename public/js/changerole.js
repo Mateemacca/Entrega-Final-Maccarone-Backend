@@ -10,7 +10,7 @@ Array.from(changeRoleBtns).forEach((btn) => {
 });
 
 async function changeUserRole(userId) {
-  const url = `http://localhost:8080/api/users/premium/${userId}`;
+  const url = `/api/users/premium/${userId}`;
   try {
     const response = await fetch(url, {
       method: "PUT",
@@ -66,7 +66,7 @@ async function deleteUser(userId) {
   });
 
   if (confirmDelete.isConfirmed) {
-    const url = `http://localhost:8080/api/users/${userId}`;
+    const url = `/api/users/${userId}`;
     try {
       const response = await fetch(url, {
         method: "DELETE",

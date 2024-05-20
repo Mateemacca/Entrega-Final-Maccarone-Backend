@@ -1,0 +1,25 @@
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+<div class="container mx-auto">
+  <a class="text-black bg-gray-300 px-4 py-2 rounded-md font-bold mt-4 mb-0 inline-block" href="/products">&larr; Go
+    back to products</a>
+  <h1 class="text-center text-3xl font-bold ">User list</h1>
+  <p class="text-center text-red-600">(only administrators can see this dashboard)*</p>
+  {{#each users}}
+  <div class="bg-white shadow-xl rounded-lg p-6 my-4 mx-auto max-w-md">
+    <h2 class="text-xl font-bold">{{this.first_name}} {{this.last_name}}</h2>
+    <p><strong>Email:</strong> {{this.email}}</p>
+    <p><strong>Role:</strong> {{this.role}}</p>
+    <div class="flex justify-between items-center mt-4">
+      <button data-userid="{{this._id}}" class="px-4 py-2 bg-blue-500 text-white font-semibold rounded-md changerolbtn">
+        Switch role to {{#if_eq this.role "user"}}Premium{{/if_eq}}{{#if_eq this.role "premium"}}User{{/if_eq}}
+      </button>
+      <button data-userid="{{this._id}}" class="px-4 py-2 bg-red-500 text-white font-semibold rounded-md deleteUserBtn">
+        Delete user
+      </button>
+    </div>
+  </div>
+  {{/each}}
+</div>
+
+<script src="/js/changerole.js"></script>

@@ -1,0 +1,99 @@
+paths:
+  /api/carts:
+    get:
+      summary: Obtiene todos los carritos
+      tags:
+        - Carts
+      responses:
+        "200":
+          description: Carritos obtenidos
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Carts"
+        "500":
+          description: Error de servidor
+    post:
+      summary: Crea un nuevo carrito
+      tags:
+        - Carts
+      responses:
+        "201":
+          description: El carrito ha sido creado correctamente
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                message:
+                  type: string
+                  description: Mensaje para indicar que se ha creado el carrito
+              example:
+                message: "Carrito creado exitosamente"
+
+  /api/carts/{cartId}:
+    parameters:
+      - name: cartId
+        in: path
+        required: true
+        description: ID del carrito a buscar
+        schema:
+          type: string
+    get:
+      summary: Obtiene un carrito por su ID
+      tags:
+        - Carts
+      responses:
+        "200":
+          description: Carrito encontrado
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Carts"
+        "404":
+          description: Carrito no encontrado
+
+components:
+  schemas:
+    Carts:
+      type: object
+      properties:
+        _id:
+          type: ObjectId
+          description: Id de mongo generado automaticamente
+        products:
+          type: array
+          items:
+            type: object
+            properties:
+              product:
+                type: ObjectId
+                description: Id del producto en el carrito
+              quantity:
+                type: number
+                description: Cantidad del producto en el carrito
+              _id:
+                type: ObjectId
+                description: Id de mongo generado automaticamente para el producto en el carrito
+      example:
+        _id: ObjectId("65efde5d850b322e531190b6")
+        products:
+          - product: "659e52980201c96148fa6902"
+            quantity: 3
+            _id: "65efde67850b322e531190c0"
+          - product: "659e52980201c96148fa6901"
+            quantity: 4
+            _id: "65efde68850b322e531190c6"
+          - product: "659e52980201c96148fa6900"
+            quantity: 2
+            _id: "65efde6a850b322e531190cd"
+          - product: "659e52980201c96148fa6904"
+            quantity: 1
+            _id: "65efde6a850b322e531190d5"
+          - product: "659e52980201c96148fa6903"
+            quantity: 1
+            _id: "65fcfe9c7bd5abf815347844"

@@ -1,0 +1,147 @@
+paths:
+  /api/products:
+    get:
+      summary: Obtiene todos los productos
+      tags:
+        - Products
+      responses:
+        "200":
+          description: Productos obtenidos
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#components/schemas/Products"
+        "500":
+          description: Error de servidor
+    post:
+      summary: Publica un nuevo producto
+      tags:
+        - Products
+      responses:
+        "201":
+          description: El producto ha sido publicado correctamente
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#components/requestBodies/createProduct"
+
+  /api/products/{pid}:
+    parameters:
+      - name: pid
+        in: path
+        required: true
+        description: ID del producto a buscar
+        schema:
+          type: string
+    get:
+      summary: Obtiene un producto por su ID
+      tags:
+        - Products
+      responses:
+        "200":
+          description: Producto encontrado
+          content:
+            application/json:
+              schema:
+                $ref: "#components/schemas/Products"
+        "404":
+          description: Producto no encontrado
+
+components:
+  schemas:
+    Products:
+      type: object
+      properties:
+        _id:
+          type: ObjectId
+          description: Id de mongo generado automaticamente
+        owner:
+          type: String
+          description: Propietario del producto
+        title:
+          type: String
+          description: Nombre del producto
+        description:
+          type: String
+          description: Descripcion del producto
+        code:
+          type: String
+          description: Codigo unico de producto
+        price:
+          type: Number
+          description: Precio del producto
+        status:
+          type: Boolean
+          description: Estado del producto
+        stock:
+          type: Number
+          description: Stock disponible del producto
+        category:
+          type: String
+          description: Categoria del producto
+        thumbnails:
+          type: Array
+          items:
+            type: String
+            description: URL de las imágenes del producto
+          description: Lista de URL's de imágenes del producto
+      example:
+        _id: ObjectId("660e3a8444ee125f1f8e2ec2")
+        owner: mateobauti.maccarone@gmail.com
+        title: prueba
+        description: prueba
+        code: 7b9790e3-4bbb-44ec-978e-3761d95d1e4b
+        price: 50000
+        status: true
+        stock: 1
+        category: prueba
+        thumbnails:
+          - "image/testimage.jpg"
+          - "image/testimage2.jpg"
+
+  requestBodies:
+    createProduct:
+      required: true
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              owner:
+                type: String
+                description: Propietario del producto
+              title:
+                type: String
+                description: Nombre del producto
+              description:
+                type: String
+                description: Descripcion del producto
+              price:
+                type: Number
+                description: Precio del producto
+              stock:
+                type: Number
+                description: Stock disponible del producto
+              category:
+                type: String
+                description: Categoria del producto
+              thumbnails:
+                type: Array
+                items:
+                  type: String
+                  description: URL de las imágenes del producto
+                description: Lista de URL's de imágenes del producto
+      example:
+        owner: mateobauti.maccarone@gmail.com
+        title: prueba
+        description: prueba
+        price: 50000
+        stock: 1
+        category: prueba
+        thumbnails:
+          - "image/testimage.jpg"
+          - "image/testimage2.jpg"

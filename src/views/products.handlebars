@@ -1,0 +1,130 @@
+{{!--
+
+
+
+<div>
+    <h1 class="text-center">Welcome {{user.first_name}} {{user.last_name}}!</h1>
+    <p class="text-center fs-3">Role: {{user.role}}</p>
+
+
+</div>
+<div class="position-fixed top-0 end-0 p-4">
+    <a class="btn border border-black" href="/cart/{{user.cart}}">
+
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+            <path
+                d="M10 19.5c0 .829-.672 1.5-1.5 1.5s-1.5-.671-1.5-1.5c0-.828.672-1.5 1.5-1.5s1.5.672 1.5 1.5zm3.5-1.5c-.828 0-1.5.671-1.5 1.5s.672 1.5 1.5 1.5 1.5-.671 1.5-1.5c0-.828-.672-1.5-1.5-1.5zm1.336-5l1.977-7h-16.813l2.938 7h11.898zm4.969-10l-3.432 12h-12.597l.839 2h13.239l3.474-12h1.929l.743-2h-4.195z" />
+        </svg>
+
+    </a>
+    <button id="logoutBtn" type="button" class="btn btn-danger">Cerrar sesión</button>
+</div>
+{{#each products.payload}}
+<div class="card p-4 my-4 mx-auto col-md-4 position-relative">
+    <div class="">
+        <h2>{{title}}</h2>
+        <p>{{description}}</p>
+        <p>Category: {{category}}</p>
+        <p>Code: {{code}}</p>
+        <p>Stock: {{stock}}</p>
+        <p>Price: <strong>${{price}}</strong></p>
+        <button id="{{this._id}}" class="btn btn-primary fw-semibold add-to-cart-btn">Add to cart</button>
+
+        {{#if_eq ../user.role 'admin'}}
+        <button id="{{this._id}}"
+            class="btn btn-danger delete-product-btn position-absolute top-0 end-0 m-2">Delete</button>
+        {{/if_eq}}
+
+    </div>
+</div>
+{{/each}}
+
+<div class="d-flex justify-content-center my-4 gap-3 align-items-center text-center">
+    {{#if products.hasPrevPage}}
+    <a href="/products?page={{products.prevPage}}" class="text-decoration-none"><button
+            class="btn btn-primary text-white fw-bold">Previous page</button></a>
+    {{/if}}
+    <p class="fw-semibold align-self-center mb-0">Page: {{products.page}}</p>
+    {{#if products.hasNextPage}}
+    <a href="/products?page={{products.nextPage}}" class="text-decoration-none"><button
+            class="btn btn-primary text-white fw-bold">Next page</button></a>
+    {{/if}}
+</div>
+
+
+<script src="/js/products.js"></script>
+<script src="js/logout.js"></script> --}}
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+<body class="bg-gray-100">
+    <div class="container mx-auto p-4">
+        <div class="text-center mb-6">
+            {{#if_eq user.role 'admin'}}
+            <h1 class="text-2xl font-bold">Welcome {{user.role}}</h1>
+            {{else}}
+
+            <h1 class="text-2xl font-bold">Welcome {{user.first_name}} {{user.last_name}}!</h1>
+            {{/if_eq}}
+            <p class="text-lg text-gray-700">Role: {{user.role}}</p>
+        </div>
+
+        <div class="fixed top-0 right-0 p-4 flex flex-row items-center space-x-4">
+            {{#if_eq user.role 'admin'}}
+            {{else}}
+            <a class="bg-white border border-black p-2 rounded-lg flex items-center" href="/cart/{{user.cart}}">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path
+                        d="M10 19.5c0 .829-.672 1.5-1.5 1.5s-1.5-.671-1.5-1.5c0-.828.672-1.5 1.5-1.5s1.5.672 1.5 1.5zm3.5-1.5c-.828 0-1.5.671-1.5 1.5s.672 1.5 1.5 1.5 1.5-.671 1.5-1.5c0-.828-.672-1.5-1.5-1.5zm1.336-5l1.977-7h-16.813l2.938 7h11.898zm4.969-10l-3.432 12h-12.597l.839 2h13.239l3.474-12h1.929l.743-2h-4.195z" />
+                </svg>
+            </a>
+            {{/if_eq}}
+            {{#if_eq user.role 'admin'}}
+            <a class="bg-white border border-black p-2 rounded-lg flex items-center" href="/change-role">Change user
+                roles
+            </a>
+            {{/if_eq}}
+            <button id="logoutBtn" type="button" class="bg-red-500 text-white p-2 rounded-lg">Log out</button>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+            {{#each products.payload}}
+            <div class="card bg-white p-6 rounded-lg shadow-lg relative flex flex-col">
+                <h2 class="text-xl font-bold mb-2">{{title}}</h2>
+                <p class="text-gray-700 mb-2">{{description}}</p>
+                <p class="text-gray-700 mb-2"><strong>Category:</strong> {{category}}</p>
+                <p class="text-gray-700 mb-2"><strong>Code:</strong> {{code}}</p>
+                <p class="text-gray-700 mb-2"><strong>Stock:</strong> {{stock}}</p>
+                <p class="text-gray-700 mb-2"><strong>Price:</strong> <strong>${{price}}</strong></p>
+                <div class="mt-auto">
+                    <button id="{{this._id}}"
+                        class="transition duration-200 ease-in-out hover:bg-blue-700 bg-blue-500 text-white p-2 rounded-lg w-full mb-2 add-to-cart-btn">Add
+                        to cart</button>
+                    {{#if_eq ../user.role 'admin'}}
+                    <button id="{{this._id}}"
+                        class="bg-red-500 text-white p-2 rounded-lg w-full delete-product-btn">Delete
+                        product</button>
+                    {{/if_eq}}
+                </div>
+            </div>
+            {{/each}}
+        </div>
+
+        <div class="flex justify-center mt-6 space-x-4">
+            {{#if products.hasPrevPage}}
+            <a href="/products?page={{products.prevPage}}" class="transition duration-200
+hover:bg-blue-700 bg-blue-500 text-white p-2 rounded-lg">Previous
+                page</a>
+            {{/if}}
+            <p class="self-center font-semibold">Page: {{products.page}}</p>
+            {{#if products.hasNextPage}}
+            <a href="/products?page={{products.nextPage}}" class="transition duration-200
+hover:bg-blue-700 bg-blue-500 text-white p-2 rounded-lg">Next
+                page</a>
+            {{/if}}
+        </div>
+    </div>
+
+    <script src="/js/products.js"></script>
+    <script src="/js/logout.js"></script>
+</body>

@@ -1,0 +1,49 @@
+{"level":"warn","message":"Esto es un warning"}
+{"level":"error","message":"Esto es un error"}
+{"level":"warn","message":"Esto es un warning"}
+{"level":"error","message":"Esto es un error"}
+error: Error con las credenciales
+error: Error al crear el producto: userId is not defined {"stack":"ReferenceError: userId is not defined\n    at addProduct (file:///C:/Users/mateo/Documents/prog/coder-prog/BackendMaccarone/Desafio%2012/src/controllers/products.controller.js:62:14)\n    at Layer.handle [as handle_request] (C:\\Users\\mateo\\Documents\\prog\\coder-prog\\BackendMaccarone\\Desafio 12\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (C:\\Users\\mateo\\Documents\\prog\\coder-prog\\BackendMaccarone\\Desafio 12\\node_modules\\express\\lib\\router\\route.js:144:13)\n    at canManageProducts (file:///C:/Users/mateo/Documents/prog/coder-prog/BackendMaccarone/Desafio%2012/src/middlewares/auth.js:48:5)\n    at Layer.handle [as handle_request] (C:\\Users\\mateo\\Documents\\prog\\coder-prog\\BackendMaccarone\\Desafio 12\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (C:\\Users\\mateo\\Documents\\prog\\coder-prog\\BackendMaccarone\\Desafio 12\\node_modules\\express\\lib\\router\\route.js:144:13)\n    at Route.dispatch (C:\\Users\\mateo\\Documents\\prog\\coder-prog\\BackendMaccarone\\Desafio 12\\node_modules\\express\\lib\\router\\route.js:114:3)\n    at Layer.handle [as handle_request] (C:\\Users\\mateo\\Documents\\prog\\coder-prog\\BackendMaccarone\\Desafio 12\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at C:\\Users\\mateo\\Documents\\prog\\coder-prog\\BackendMaccarone\\Desafio 12\\node_modules\\express\\lib\\router\\index.js:284:15\n    at Function.process_params (C:\\Users\\mateo\\Documents\\prog\\coder-prog\\BackendMaccarone\\Desafio 12\\node_modules\\express\\lib\\router\\index.js:346:12)"}
+error: Solo los usuarios premium pueden agregar productos.
+error: Solo los usuarios premium pueden agregar productos.
+error: Error al crear el producto: products validation failed: owner: Cast to ObjectId failed for value "Admin" (type string) at path "owner" because of "BSONError" {"_message":"products validation failed","errors":{"owner":{"kind":"ObjectId","message":"Cast to ObjectId failed for value \"Admin\" (type string) at path \"owner\" because of \"BSONError\"","name":"CastError","path":"owner","reason":{},"stringValue":"\"Admin\"","value":"Admin","valueType":"string"}},"stack":"ValidationError: products validation failed: owner: Cast to ObjectId failed for value \"Admin\" (type string) at path \"owner\" because of \"BSONError\"\n    at Document.invalidate (C:\\Users\\mateo\\Documents\\prog\\coder-prog\\BackendMaccarone\\Desafio 12\\node_modules\\mongoose\\lib\\document.js:3201:32)\n    at applyDefaults (C:\\Users\\mateo\\Documents\\prog\\coder-prog\\BackendMaccarone\\Desafio 12\\node_modules\\mongoose\\lib\\helpers\\document\\applyDefaults.js:103:17)\n    at model.Document (C:\\Users\\mateo\\Documents\\prog\\coder-prog\\BackendMaccarone\\Desafio 12\\node_modules\\mongoose\\lib\\document.js:158:7)\n    at model.Model (C:\\Users\\mateo\\Documents\\prog\\coder-prog\\BackendMaccarone\\Desafio 12\\node_modules\\mongoose\\lib\\model.js:125:12)\n    at new model (C:\\Users\\mateo\\Documents\\prog\\coder-prog\\BackendMaccarone\\Desafio 12\\node_modules\\mongoose\\lib\\model.js:4604:15)\n    at C:\\Users\\mateo\\Documents\\prog\\coder-prog\\BackendMaccarone\\Desafio 12\\node_modules\\mongoose\\lib\\model.js:2809:20\n    at Array.map (<anonymous>)\n    at Function.create (C:\\Users\\mateo\\Documents\\prog\\coder-prog\\BackendMaccarone\\Desafio 12\\node_modules\\mongoose\\lib\\model.js:2797:34)\n    at ProductRepository.addProduct (file:///C:/Users/mateo/Documents/prog/coder-prog/BackendMaccarone/Desafio%2012/src/dao/repositories/product.repository.js:44:41)\n    at addProduct (file:///C:/Users/mateo/Documents/prog/coder-prog/BackendMaccarone/Desafio%2012/src/controllers/products.controller.js:71:46)"}
+error: Solo los usuarios premium pueden agregar productos.
+error: Solo los usuarios premium pueden agregar productos.
+error: Error al crear el producto: Error trying to create product {"code":2,"name":"Product creation fails","stack":"Product creation fails: Error trying to create product\n    at CustomErrors.createError (file:///C:/Users/mateo/Documents/prog/coder-prog/BackendMaccarone/Desafio%2012/src/services/errors/CustomErrors.js:3:23)\n    at ProductRepository.addProduct (file:///C:/Users/mateo/Documents/prog/coder-prog/BackendMaccarone/Desafio%2012/src/dao/repositories/product.repository.js:54:22)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async addProduct (file:///C:/Users/mateo/Documents/prog/coder-prog/BackendMaccarone/Desafio%2012/src/controllers/products.controller.js:57:24)"}
+error: Error al crear el producto: Error trying to create product {"code":2,"name":"Product creation fails","stack":"Product creation fails: Error trying to create product\n    at CustomErrors.createError (file:///C:/Users/mateo/Documents/prog/coder-prog/BackendMaccarone/Desafio%2012/src/services/errors/CustomErrors.js:3:23)\n    at ProductRepository.addProduct (file:///C:/Users/mateo/Documents/prog/coder-prog/BackendMaccarone/Desafio%2012/src/dao/repositories/product.repository.js:53:22)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async addProduct (file:///C:/Users/mateo/Documents/prog/coder-prog/BackendMaccarone/Desafio%2012/src/controllers/products.controller.js:57:24)"}
+error: Error al crear el producto: products validation failed: category: Path `category` is required. {"_message":"products validation failed","errors":{"category":{"kind":"required","message":"Path `category` is required.","name":"ValidatorError","path":"category","properties":{"message":"Path `category` is required.","path":"category","type":"required"}}},"stack":"ValidationError: products validation failed: category: Path `category` is required.\n    at Document.invalidate (C:\\Users\\mateo\\Documents\\prog\\coder-prog\\BackendMaccarone\\Desafio 12\\node_modules\\mongoose\\lib\\document.js:3201:32)\n    at C:\\Users\\mateo\\Documents\\prog\\coder-prog\\BackendMaccarone\\Desafio 12\\node_modules\\mongoose\\lib\\document.js:2994:17\n    at C:\\Users\\mateo\\Documents\\prog\\coder-prog\\BackendMaccarone\\Desafio 12\\node_modules\\mongoose\\lib\\schemaType.js:1368:9\n    at process.processTicksAndRejections (node:internal/process/task_queues:77:11)"}
+error: Error al crear el producto: products validation failed: title: Path `title` is required., description: Path `description` is required., price: Path `price` is required., category: Path `category` is required. {"_message":"products validation failed","errors":{"category":{"kind":"required","message":"Path `category` is required.","name":"ValidatorError","path":"category","properties":{"message":"Path `category` is required.","path":"category","type":"required"}},"description":{"kind":"required","message":"Path `description` is required.","name":"ValidatorError","path":"description","properties":{"message":"Path `description` is required.","path":"description","type":"required"}},"price":{"kind":"required","message":"Path `price` is required.","name":"ValidatorError","path":"price","properties":{"message":"Path `price` is required.","path":"price","type":"required"}},"title":{"kind":"required","message":"Path `title` is required.","name":"ValidatorError","path":"title","properties":{"message":"Path `title` is required.","path":"title","type":"required"}}},"stack":"ValidationError: products validation failed: title: Path `title` is required., description: Path `description` is required., price: Path `price` is required., category: Path `category` is required.\n    at Document.invalidate (C:\\Users\\mateo\\Documents\\prog\\coder-prog\\BackendMaccarone\\Desafio 14\\node_modules\\mongoose\\lib\\document.js:3201:32)\n    at C:\\Users\\mateo\\Documents\\prog\\coder-prog\\BackendMaccarone\\Desafio 14\\node_modules\\mongoose\\lib\\document.js:2994:17\n    at C:\\Users\\mateo\\Documents\\prog\\coder-prog\\BackendMaccarone\\Desafio 14\\node_modules\\mongoose\\lib\\schemaType.js:1368:9\n    at process.processTicksAndRejections (node:internal/process/task_queues:77:11)"}
+error: Carrito no encontrado
+error: Carrito no encontrado
+error: Carrito no encontrado
+error: Carrito no encontrado
+error: Carrito no encontrado
+error: Carrito no encontrado
+error: Carrito no encontrado
+error: Carrito no encontrado
+error: Carrito no encontrado
+error: Error al eliminar el producto
+error: Error al agregar el producto al carrito
+error: Error al agregar el producto al carrito
+error: Error al agregar el producto al carrito
+error: Error con las credenciales
+error: Error con las credenciales
+error: Error con las credenciales
+error: Error con las credenciales
+error: Error con las credenciales
+error: Error con las credenciales
+error: Error con las credenciales
+error: Error con las credenciales
+error: Error con las credenciales
+error: Carrito no encontrado
+error: Error con las credenciales
+error: Error con las credenciales
+error: Error al buscar el producto
+error: undefined
+error: Error al eliminar el producto
+error: Error al eliminar el producto
+error: Error al eliminar el producto
+error: Error al agregar el producto al carrito
+error: undefined
+error: Unauthorized
+error: undefined

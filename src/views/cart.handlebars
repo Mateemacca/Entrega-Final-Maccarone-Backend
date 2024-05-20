@@ -1,0 +1,55 @@
+{{!-- <div>
+  <h2>Productos del carrito con el id {{cart._id}}</h2>
+  {{#each cart.products}}
+  <div class="card ">
+    <p> {{this.product.title}}</p>
+    <p>Cantidad: {{this.quantity}}</p>
+  </div>
+  {{/each}}
+</div> --}}
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+<div class="container mx-auto">
+  <a class="text-black bg-gray-300 px-4 py-2 rounded-md font-bold mt-4 mb-8 inline-block" href="/products">&larr; Go
+    back to products</a>
+
+  {{#if_gt cart.products.length 0}}
+  <h1 class="text-center mb-4 text-2xl">Products in the cart with the ID: {{cart._id}}</h1>
+  <div id="cartItems" class="overflow-x-auto">
+    <table class="min-w-full">
+      <thead>
+        <tr class="bg-gray-200">
+          <th class="px-6 py-3 border-b-2 border-gray-300 text-left font-bold">Product</th>
+          <th class="px-6 py-3 border-b-2 border-gray-300 text-left font-bold">Category</th>
+          <th class="px-6 py-3 border-b-2 border-gray-300 text-left font-bold">Code</th>
+          <th class="px-6 py-3 border-b-2 border-gray-300 text-left font-bold">Price</th>
+          <th class="px-6 py-3 border-b-2 border-gray-300 text-left font-bold">Quantity</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each cart.products}}
+        <tr class="bg-white">
+          <td class="px-6 py-4 border-b border-gray-300">{{this.product.title}}</td>
+          <td class="px-6 py-4 border-b border-gray-300">{{this.product.category}}</td>
+          <td class="px-6 py-4 border-b border-gray-300">{{this.product.code}}</td>
+          <td class="px-6 py-4 border-b border-gray-300">${{this.product.price}}</td>
+          <td class="px-6 py-4 border-b border-gray-300">{{this.quantity}}</td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+  <div class="flex justify-center mt-4">
+    <button data-cart="{{user.cart}}" class="bg-blue-500 text-white px-4 py-2 rounded-md font-bold"
+      id="purchase-cart">Purchase cart</button>
+  </div>
+  {{else}}
+  <div class="text-center mt-8">
+    <h1 class="text-2xl font-bold">There are currently no products in the cart.</h1>
+  </div>
+  {{/if_gt}}
+</div>
+
+<div id="ticketInfo" class="container mx-auto"></div>
+
+
+<script src="/js/cartPage.js">

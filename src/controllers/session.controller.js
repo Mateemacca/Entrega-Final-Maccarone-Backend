@@ -104,7 +104,7 @@ export const passwordForbidden = async (req, res) => {
       subject: "Change password",
       html: `
                 <h1>Hello!!</h1>
-                <p>Click this <a href="/api/session/restore-password/${tokenObj.token}">link</a> to reset your password.</p>
+                <p>Click this <a href="https://entrega-final-maccarone-backend-qa.up.railway.app/api/session/restore-password/${tokenObj.token}">link</a> to reset your password.</p>
             `,
     });
     const emailSend = true;
